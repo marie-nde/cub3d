@@ -3,7 +3,7 @@
 # define GNL_ERROR -1
 # define GNL_NL 1
 # define GNL_EOF 0
-# define BUFFER_SIZE 100
+# define BUFFER_SIZE 4096
 
 # include <unistd.h>
 # include <sys/types.h>
@@ -13,20 +13,20 @@
 
 typedef struct	s_parse
 {
-	int rendu;
-	int north;
-	int south;
-	int west;
-	int east;
-	int sprite;
-	int floor;
-	int ceiling;
-	int map;
+	char *resol;
+	char *north;
+	char *south;
+	char *west;
+	char *east;
+	char *sprite;
+	char *floor;
+	char *ceiling;
+	char **map;
 }				t_struct;
 
 void	ft_putchar(char c);
 void	ft_putstr(char *str);
-int		ft_check_parsing(t_struct *parsing, char **fill);
+char	*ft_check_parsing(t_struct *s_parse, char *line);
 int		get_next_line(int fd, char **line);
 int		ft_strlen(char *str, char c);
 char	*ft_strjoin(char *s1, char *s2);
