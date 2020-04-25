@@ -22,8 +22,6 @@ int		main(int ac, char **av)
 	tab[i] = 0;
 	if (!(s_parse = malloc(sizeof(t_struct))))
 		return (0);
-/*	if (ft_check_parsing(s_parse, tab) == 1)
-		return (0);*/
 	close(fd);
 	return (0);
 }
