@@ -46,3 +46,11 @@ t_struct	*ft_init_struct(t_struct *s_parse)
 	s_parse->ceiling = 0;
 	return (s_parse);
 }
+
+t_struct	*ft_check_error(char **values, t_struct *s_parse)
+{
+	int i;
+
+	i = 0;
+	s_parse->resol = ft_check_resol(values, s_parse->resol);
+}
