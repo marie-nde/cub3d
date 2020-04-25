@@ -36,6 +36,7 @@ t_struct	*ft_init_struct(t_struct *s_parse);
 int			ft_double(int a);
 int			ft_is_it(char *str);
 int			ft_check_parsing(t_struct *s_parse, char **tab);
+char		**ft_fill_values(char **tab, t_struct *s_parse);
 
 
 #endif

@@ -44,4 +44,5 @@ t_struct	*ft_init_struct(t_struct *s_parse)
 	s_parse->sprite = 0;
 	s_parse->floor = 0;
 	s_parse->ceiling = 0;
+	return (s_parse);
 }

@@ -30,6 +30,9 @@ t_struct	*ft_get_error(t_struct *s_parse, char **tab)
 
 int			ft_check_parsing(t_struct *s_parse, char **tab)
 {
+	char **values;
+
 	s_parse = ft_init_struct(s_parse);
 	s_parse = ft_get_error(s_parse, tab);
+	values = ft_fill_values(tab, s_parse);
 }
