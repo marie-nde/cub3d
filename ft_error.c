@@ -29,7 +29,7 @@ int			ft_is_it(char *str)
 
 int			ft_double(int a)
 {
-	if (a == 1)
+	if (a == 1 || a == 2)
 		return (2);
 	return (1);
 }
@@ -45,12 +45,4 @@ t_struct	*ft_init_struct(t_struct *s_parse)
 	s_parse->floor = 0;
 	s_parse->ceiling = 0;
 	return (s_parse);
-}
-
-t_struct	*ft_check_error(char **values, t_struct *s_parse)
-{
-	int i;
-
-	i = 0;
-	s_parse->resol = ft_check_resol(values, s_parse->resol);
 }

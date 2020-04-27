@@ -8,10 +8,16 @@ int		main(int ac, char **av)
 	char **tab;
 	int i;
 	int fd;
+	int error;
 
 	i = 0;
+	error = 0;
 	line = NULL;
 	fd = open(av[1], O_RDONLY);
+	if (fd == -1)
+		error = 1;
+	if (ft_check_cub(av[1]) == 1)
+		error = 2;
 	if (!(tab = (char**)malloc(sizeof(char*) * 100)))
 		return (0);
 	while (get_next_line(fd, &line) == 1)
@@ -22,7 +28,7 @@ int		main(int ac, char **av)
 	tab[i] = 0;
 	if (!(s_parse = malloc(sizeof(t_struct))))
 		return (0);
-	ft_check_parsing(s_parse, tab);
+	ft_check_parsing(s_parse, tab, error);
 	close(fd);
 	return (0);
 }

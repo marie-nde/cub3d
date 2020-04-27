@@ -11,6 +11,8 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <string.h>
+# include <errno.h>
 
 typedef struct	s_parse
 {
@@ -36,7 +38,12 @@ int			ft_isnl(char *str, char c);
 t_struct	*ft_init_struct(t_struct *s_parse);
 int			ft_double(int a);
 int			ft_is_it(char *str);
-int			ft_check_parsing(t_struct *s_parse, char **tab);
+int			ft_check_parsing(t_struct *s_parse, char **tab, int error);
 char		**ft_fill_values(char **tab, t_struct *s_parse);
+int			ft_check_cub(char *str);
+int			ft_atoi(char *str);
+int			ft_check_resol(char *str);
+int			ft_check_file(char *str, int i);
+int			ft_check_color(char *str, int i);
 
 #endif
