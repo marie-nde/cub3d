@@ -16,7 +16,7 @@ int		main(int ac, char **av)
 	fd = open(av[1], O_RDONLY);
 	if (fd == -1)
 		error = 1;
-	if (ft_check_cub(av[1]) == 1)
+	else if (ft_check_cub(av[1]) == 1)
 		error = 2;
 	if (!(tab = (char**)malloc(sizeof(char*) * 100)))
 		return (0);
