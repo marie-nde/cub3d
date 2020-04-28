@@ -56,6 +56,24 @@ t_struct	*ft_check_error(char **values, t_struct *s_parse)
 	return (s_parse);
 }
 
+void		ft_print_error(int error, t_struct *s_parse)
+{
+	if (error > 0 || s_parse->resol != 1 || s_parse->north != 1 || s_parse->south != 1 || s_parse->west != 1 || s_parse->east != 1 || s_parse->sprite != 1 || s_parse->floor != 1 || s_parse->ceiling != 1)
+		ft_putstr("Error\n");
+	if (error == 1)
+		ft_putstr("Warning: No such file or directory\n");
+	else if (error == 2)
+		ft_putstr("Warning: Wrong map file extension\n");
+	if (s_parse->resol == 2 || s_parse->north == 2 || s_parse->south == 2 || s_parse->west == 2 || s_parse->east == 2 || s_parse->sprite == 2 || s_parse->floor == 2 || s_parse->ceiling == 2)
+		ft_putstr("Warning: Duplications have been found in the map file\n");
+	if (s_parse->resol == 3)
+		ft_putstr("Warning: Wrong resolution\n");
+	if (s_parse->north == 3 || s_parse->south == 3 || s_parse->west == 3 || s_parse->east == 3)
+		ft_putstr("Warning: Wrong texture file(s)\n");
+	if (s_parse->floor == 3 || s_parse->ceiling == 3)
+		ft_putstr("Warning: Wrong color format\n");
+}
+
 int			ft_check_parsing(t_struct *s_parse, char **tab, int error)
 {
 	char **values;
@@ -64,5 +82,6 @@ int			ft_check_parsing(t_struct *s_parse, char **tab, int error)
 	s_parse = ft_get_error(s_parse, tab);
 	values = ft_fill_values(tab, s_parse);
 	s_parse = ft_check_error(values, s_parse);
+	ft_print_error(error, s_parse);
 	return (0);
 }
