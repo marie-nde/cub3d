@@ -45,5 +45,10 @@ int			ft_atoi(char *str);
 int			ft_check_resol(char *str);
 int			ft_check_file(char *str, int i);
 int			ft_check_color(char *str, int i);
+char		**ft_fill_map(char **tab, t_struct *s_parse);
+int			ft_parse_map(char **map);
+int			ft_map_wall(char *str);
+int			ft_wall_around(char *str);
+int			ft_other_char(char *str);
 
 #endif

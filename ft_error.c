@@ -46,3 +46,30 @@ t_struct	*ft_init_struct(t_struct *s_parse)
 	s_parse->ceiling = 0;
 	return (s_parse);
 }
+
+int		ft_map_wall(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str && str[i] && str[i] == '1')
+		i++;
+	if (str[i] == '\0')
+		return (0);
+	return (1);
+}
+
+int		ft_wall_around(char *str)
+{
+	int i;
+
+	i = 0;
+	if (str && str[i] && str[i] != '1')
+		return (1);
+	while (str && str[i])
+		i++;
+	i--;
+	if (str && str[i] != '1')
+		return (1);
+	return (0);
+}

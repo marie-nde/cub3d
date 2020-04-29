@@ -33,3 +33,27 @@ char	**ft_fill_values(char **tab, t_struct *s_parse)
 	values[j] = 0;
 	return (values);
 }
+
+char	**ft_fill_map(char **tab, t_struct *s_parse)
+{
+	int i;
+	int j;
+	char **map;
+
+	i = 0;
+	j = 0;
+	if (!(map = (char**)malloc(sizeof(char*) * 100)))
+		return (NULL);
+	while (tab && tab[i])
+	{
+		if (tab[i][0] == '1' || tab[i][0] == '0')
+		{
+			while (tab[i])
+				map[j++] = ft_strdup(tab[i++], '\0');
+			map[j] = 0;
+			break ;
+		}
+		i++;
+	}
+	return (map);
+}
