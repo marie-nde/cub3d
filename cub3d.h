@@ -24,7 +24,12 @@ typedef struct	s_parse
 	int sprite;
 	int floor;
 	int ceiling;
-	int map;
+	int map_wg_char;
+	int map_end;
+	int map_wall;
+	int map_dup;
+	int map_no_pos;
+
 }				t_struct;
 
 void		ft_putchar(char c);
@@ -46,9 +51,11 @@ int			ft_check_resol(char *str);
 int			ft_check_file(char *str, int i);
 int			ft_check_color(char *str, int i);
 char		**ft_fill_map(char **tab, t_struct *s_parse);
-int			ft_parse_map(char **map);
+t_struct	*ft_check_map(char **map, t_struct *s_parse);
 int			ft_map_wall(char *str);
 int			ft_wall_around(char *str);
 int			ft_other_char(char *str);
+int			ft_is_pos(char *str);
+int			ft_around(char *s1, char *s, char *s2);
 
 #endif

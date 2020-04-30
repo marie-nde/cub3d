@@ -82,22 +82,3 @@ int		ft_check_color(char *str, int i)
 	}
 	return (3);
 }
-
-int		ft_parse_map(char **map)
-{
-	int i;
-
-	i = 0;
-	while (map && map[i])
-	{
-		if ((i == 0 && ft_map_wall(map[i]) == 1) || ft_wall_around(map[i]) == 1)
-			return (4);
-		else if (ft_other_char(map[i]) == 1)
-			return (2);
-		else if (map[i + 1] == 0)
-			if (ft_map_wall(map[i]) == 1)
-				return (4);
-		i++;
-	}
-	return (1);
-}

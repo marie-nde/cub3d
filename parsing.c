@@ -83,9 +83,8 @@ int			ft_check_parsing(t_struct *s_parse, char **tab, int error)
 	s_parse = ft_get_error(s_parse, tab);
 	values = ft_fill_values(tab, s_parse);
 	map = ft_fill_map(tab, s_parse);
-	s_parse->map = ft_parse_map(map);
-	printf("%d", s_parse->map);
 	s_parse = ft_check_error(values, s_parse);
+	s_parse = ft_check_map(map, s_parse);
 	ft_print_error(error, s_parse);
 	return (0);
 }

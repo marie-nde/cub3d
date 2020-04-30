@@ -44,6 +44,11 @@ t_struct	*ft_init_struct(t_struct *s_parse)
 	s_parse->sprite = 0;
 	s_parse->floor = 0;
 	s_parse->ceiling = 0;
+	s_parse->map_wg_char = 0;
+	s_parse->map_end = 0;
+	s_parse->map_wall = 0;
+	s_parse->map_dup = 0;
+	s_parse->map_no_pos = 0;
 	return (s_parse);
 }
 
