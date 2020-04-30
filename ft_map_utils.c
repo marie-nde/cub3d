@@ -37,9 +37,9 @@ int		ft_around(char *s1, char *s, char *s2)
 		i++;
 	while (s && s[i] != '0')
 		i--;
-	if (i > ft_strlen(s1, '\0'))
+	if (i >= ft_strlen(s1, '\0'))
 		return (1);
-	if (i > ft_strlen(s2, '\0'))
+	if (i >= ft_strlen(s2, '\0'))
 		return (1);
 	return (0);
 }

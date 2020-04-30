@@ -57,5 +57,6 @@ int			ft_wall_around(char *str);
 int			ft_other_char(char *str);
 int			ft_is_pos(char *str);
 int			ft_around(char *s1, char *s, char *s2);
+void		ft_print_error_map(t_struct *s_parse);
 
 #endif

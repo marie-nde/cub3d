@@ -58,7 +58,7 @@ t_struct	*ft_check_error(char **values, t_struct *s_parse)
 
 void		ft_print_error(int error, t_struct *s_parse)
 {
-	if (error > 0 || s_parse->resol != 1 || s_parse->north != 1 || s_parse->south != 1 || s_parse->west != 1 || s_parse->east != 1 || s_parse->sprite != 1 || s_parse->floor != 1 || s_parse->ceiling != 1)
+	if (error > 0 || s_parse->resol != 1 || s_parse->north != 1 || s_parse->south != 1 || s_parse->west != 1 || s_parse->east != 1 || s_parse->sprite != 1 || s_parse->floor != 1 || s_parse->ceiling != 1 || s_parse->map_wg_char == 1 || s_parse->map_end == 1 || s_parse->map_wall == 1 || s_parse->map_dup == 1 || s_parse->map_no_pos == 1)
 		ft_putstr("Error\n");
 	if (error == 1)
 		ft_putstr("Warning: No such file or directory\n");
@@ -72,6 +72,7 @@ void		ft_print_error(int error, t_struct *s_parse)
 		ft_putstr("Warning: Wrong texture file(s)\n");
 	if (s_parse->floor == 3 || s_parse->ceiling == 3)
 		ft_putstr("Warning: Wrong color format\n");
+	ft_print_error_map(s_parse);
 }
 
 int			ft_check_parsing(t_struct *s_parse, char **tab, int error)
