@@ -29,6 +29,7 @@ typedef struct	s_parse
 	int map_wall;
 	int map_dup;
 	int map_no_pos;
+	int no_map;
 
 }				t_struct;
 
@@ -58,5 +59,6 @@ int			ft_other_char(char *str);
 int			ft_is_pos(char *str);
 int			ft_around(char *s1, char *s, char *s2);
 void		ft_print_error_map(t_struct *s_parse);
+void		ft_print_no_values(t_struct *s_parse);
 
 #endif
