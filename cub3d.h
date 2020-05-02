@@ -30,6 +30,7 @@ typedef struct	s_parse
 	int map_dup;
 	int map_no_pos;
 	int no_map;
+	int wrong_line;
 
 }				t_struct;
 

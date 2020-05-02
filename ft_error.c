@@ -23,6 +23,8 @@ int			ft_is_it(char *str)
 			return (7);
 		else if (str[i] == 'C' && str[i + 1] == ' ')
 			return (8);
+		else if (str[i] != '\0' && str[i] != '1' && str[i] != '0' && str[i] != ' ')
+			return (9);
 	}
 	return (0);
 }
@@ -50,6 +52,7 @@ t_struct	*ft_init_struct(t_struct *s_parse)
 	s_parse->map_dup = 0;
 	s_parse->map_no_pos = 0;
 	s_parse->no_map = 0;
+	s_parse->wrong_line = 0;
 	return (s_parse);
 }
 
