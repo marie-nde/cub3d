@@ -61,5 +61,6 @@ int			ft_is_pos(char *str);
 int			ft_around(char *s1, char *s, char *s2);
 void		ft_print_error_map(t_struct *s_parse);
 void		ft_print_no_values(t_struct *s_parse);
+void		ft_print_wrong_text(t_struct *s_parse);
 
 #endif

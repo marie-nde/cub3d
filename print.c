@@ -49,3 +49,17 @@ void	ft_print_no_values(t_struct *s_parse)
 	if (s_parse->no_map == 1)
 		ft_putstr("Warning: No map found\n");
 }
+
+void	ft_print_wrong_text(t_struct *s_parse)
+{
+	if (s_parse->north == 3)
+		ft_putstr("Warning: Wrong north texture file\n");
+	if (s_parse->south == 3)
+		ft_putstr("Warning: Wrong south texture file\n");
+	if (s_parse->west == 3)
+		ft_putstr("Warning: Wrong west texture file\n");
+	if (s_parse->east == 3)
+		ft_putstr("Warning: Wrong east texture file\n");
+	if (s_parse->sprite == 3)
+		ft_putstr("Warning: Wrong sprite texture file\n");
+}

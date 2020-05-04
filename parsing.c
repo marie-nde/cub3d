@@ -1,10 +1,7 @@
 #include "cub3d.h"
 
-t_struct	*ft_get_error(t_struct *s_parse, char **tab)
+t_struct	*ft_get_error(t_struct *s_parse, char **tab, int i)
 {
-	int i;
-	
-	i = 0;
 	while (tab[i])
 	{
 		if (ft_is_it(tab[i]) == 1)
@@ -33,7 +30,7 @@ t_struct	*ft_get_error(t_struct *s_parse, char **tab)
 t_struct	*ft_check_error(char **values, t_struct *s_parse)
 {
 	int i;
-	
+
 	i = 0;
 	while (values && values[i])
 	{
@@ -65,7 +62,7 @@ void		ft_print_error(int error, t_struct *s_parse)
 	if (error == 1)
 		ft_putstr("Warning: No such file or directory\n");
 	else if (error == 2)
-		ft_putstr("Warning: Wrong map file extension\n");
+		ft_putstr("Warning: Wrong file extension\n");
 	ft_print_no_values(s_parse);
 	if (s_parse->wrong_line == 1)
 		ft_putstr("Warning: One or more unidentified lines have been found\n");
@@ -73,8 +70,7 @@ void		ft_print_error(int error, t_struct *s_parse)
 		ft_putstr("Warning: Duplications have been found in the map file\n");
 	if (s_parse->resol == 3)
 		ft_putstr("Warning: Wrong resolution\n");
-	if (s_parse->north == 3 || s_parse->south == 3 || s_parse->west == 3 || s_parse->east == 3 || s_parse->sprite == 3)
-		ft_putstr("Warning: Wrong texture files\n");
+	ft_print_wrong_text(s_parse);
 	if (s_parse->floor == 3 || s_parse->ceiling == 3)
 		ft_putstr("Warning: Wrong color format\n");
 	ft_print_error_map(s_parse);
@@ -86,7 +82,7 @@ int			ft_check_parsing(t_struct *s_parse, char **tab, int error)
 	char **map;
 
 	s_parse = ft_init_struct(s_parse);
-	s_parse = ft_get_error(s_parse, tab);
+	s_parse = ft_get_error(s_parse, tab, 0);
 	values = ft_fill_values(tab, s_parse);
 	map = ft_fill_map(tab, s_parse);
 	s_parse = ft_check_error(values, s_parse);
