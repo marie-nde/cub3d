@@ -14,52 +14,52 @@ void	ft_putstr(char *str)
 		ft_putchar(str[i++]);	
 }
 
-void	ft_print_error_map(t_struct *s_parse)
+void	ft_print_error_map(t_struct *s_parse, int error)
 {
-	if (s_parse->map_wall == 1)
+	if (error == 0 && s_parse->map_wall == 1)
 		ft_putstr("Warning: The map is not surrounded by walls\n");
-	if (s_parse->map_wg_char == 1)
+	if (error == 0 && s_parse->map_wg_char == 1)
 		ft_putstr("Warning: One or more wrong characters have been found in the map\n");
-	if (s_parse->map_end == 1)
+	if (error == 0 && s_parse->map_end == 1)
 		ft_putstr("Warning: The map is not at the end of the file\n");
-	if (s_parse->map_dup == 1)
+	if (error == 0 && s_parse->map_dup == 1)
 		ft_putstr("Warning: Two or more positions have been found in the map\n");
-	if (s_parse->map_no_pos == 1)
+	if (error == 0 && s_parse->map_no_pos == 1)
 		ft_putstr("Warning: No position have been found in the map\n");
 }
 
-void	ft_print_no_values(t_struct *s_parse)
+void	ft_print_no_values(t_struct *s_parse, int error)
 {
-	if (s_parse->resol == 0)
+	if (error == 0 && s_parse->resol == 0)
 		ft_putstr("Warning: No resolution found\n");
-	if (s_parse->north == 0)
+	if (error == 0 && s_parse->north == 0)
 		ft_putstr("Warning: No north texture found\n");
-	if (s_parse->south == 0)
+	if (error == 0 && s_parse->south == 0)
 		ft_putstr("Warning: No south texture found\n");
-	if (s_parse->west == 0)
+	if (error == 0 && s_parse->west == 0)
 		ft_putstr("Warning: No west texture found\n");
-	if (s_parse->east == 0)
+	if (error == 0 && s_parse->east == 0)
 		ft_putstr("Warning: No east texture found\n");
-	if (s_parse->sprite == 0)
+	if (error == 0 && s_parse->sprite == 0)
 		ft_putstr("Warning: No sprite texture found\n");
-	if (s_parse->floor == 0)
+	if (error == 0 && s_parse->floor == 0)
 		ft_putstr("Warning: No floor color found\n");
-	if (s_parse->ceiling == 0)
+	if (error == 0 && s_parse->ceiling == 0)
 		ft_putstr("Warning: No ceiling color found\n");
-	if (s_parse->no_map == 1)
+	if (error == 0 && s_parse->no_map == 1)
 		ft_putstr("Warning: No map found\n");
 }
 
-void	ft_print_wrong_text(t_struct *s_parse)
+void	ft_print_wrong_text(t_struct *s_parse, int error)
 {
-	if (s_parse->north == 3)
+	if (error == 0 && s_parse->north == 3)
 		ft_putstr("Warning: Wrong north texture file\n");
-	if (s_parse->south == 3)
+	if (error == 0 && s_parse->south == 3)
 		ft_putstr("Warning: Wrong south texture file\n");
-	if (s_parse->west == 3)
+	if (error == 0 && s_parse->west == 3)
 		ft_putstr("Warning: Wrong west texture file\n");
-	if (s_parse->east == 3)
+	if (error == 0 && s_parse->east == 3)
 		ft_putstr("Warning: Wrong east texture file\n");
-	if (s_parse->sprite == 3)
+	if (error == 0 && s_parse->sprite == 3)
 		ft_putstr("Warning: Wrong sprite texture file\n");
 }

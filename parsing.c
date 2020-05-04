@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parsing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/05/04 16:36:40 by user42            #+#    #+#             */
+/*   Updated: 2020/05/04 16:53:46 by mnaude           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 t_struct	*ft_get_error(t_struct *s_parse, char **tab, int i)
@@ -57,30 +69,41 @@ t_struct	*ft_check_error(char **values, t_struct *s_parse)
 
 void		ft_print_error(int error, t_struct *s_parse)
 {
-	if (error > 0 || s_parse->resol != 1 || s_parse->north != 1 || s_parse->south != 1 || s_parse->west != 1 || s_parse->east != 1 || s_parse->sprite != 1 || s_parse->floor != 1 || s_parse->ceiling != 1 || s_parse->map_wg_char == 1 || s_parse->map_end == 1 || s_parse->map_wall == 1 || s_parse->map_dup == 1 || s_parse->map_no_pos == 1 || s_parse->no_map == 1 || s_parse->wrong_line == 1)
+	if (error > 0 || s_parse->resol != 1 || s_parse->north != 1 ||
+		s_parse->south != 1 || s_parse->west != 1 || s_parse->east != 1
+		|| s_parse->sprite != 1 || s_parse->floor != 1 || s_parse->ceiling
+		!= 1 || s_parse->map_wg_char == 1 || s_parse->map_end == 1 ||
+		s_parse->map_wall == 1 || s_parse->map_dup == 1 ||
+		s_parse->map_no_pos == 1 || s_parse->no_map == 1 ||
+		s_parse->wrong_line == 1)
 		ft_putstr("Error\n");
 	if (error == 1)
 		ft_putstr("Warning: No such file or directory\n");
 	else if (error == 2)
 		ft_putstr("Warning: Wrong file extension\n");
-	ft_print_no_values(s_parse);
-	if (s_parse->wrong_line == 1)
+	ft_print_no_values(s_parse, error);
+	if (s_parse->wrong_line == 1 && error == 0)
 		ft_putstr("Warning: One or more unidentified lines have been found\n");
-	if (s_parse->resol == 2 || s_parse->north == 2 || s_parse->south == 2 || s_parse->west == 2 || s_parse->east == 2 || s_parse->sprite == 2 || s_parse->floor == 2 || s_parse->ceiling == 2)
+	if (error == 0 && (s_parse->resol == 2 || s_parse->north == 2 ||
+		s_parse->south == 2 || s_parse->west == 2 || s_parse->east == 2 ||
+		s_parse->sprite == 2 || s_parse->floor == 2 || s_parse->ceiling == 2))
 		ft_putstr("Warning: Duplications have been found in the map file\n");
-	if (s_parse->resol == 3)
+	if (s_parse->resol == 3 && error == 0)
 		ft_putstr("Warning: Wrong resolution\n");
-	ft_print_wrong_text(s_parse);
-	if (s_parse->floor == 3 || s_parse->ceiling == 3)
+	ft_print_wrong_text(s_parse, error);
+	if (error == 0 && (s_parse->floor == 3 || s_parse->ceiling == 3))
 		ft_putstr("Warning: Wrong color format\n");
-	ft_print_error_map(s_parse);
+	ft_print_error_map(s_parse, error);
 }
 
-int			ft_check_parsing(t_struct *s_parse, char **tab, int error)
+int			ft_check_parsing(char **tab, int error)
 {
-	char **values;
-	char **map;
+	char		**values;
+	char		**map;
+	t_struct	*s_parse;
 
+	if (!(s_parse = malloc(sizeof(t_struct))))
+		return (0);
 	s_parse = ft_init_struct(s_parse);
 	s_parse = ft_get_error(s_parse, tab, 0);
 	values = ft_fill_values(tab, s_parse);

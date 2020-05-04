@@ -1,14 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/05/04 16:39:56 by user42            #+#    #+#             */
+/*   Updated: 2020/05/04 16:46:08 by user42           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
-#include <stdio.h>
 
 int		main(int ac, char **av)
 {
-	t_struct *s_parse;
-	char *line;
-	char **tab;
-	int i;
-	int fd;
-	int error;
+	char		*line;
+	char		**tab;
+	int			i;
+	int			fd;
+	int			error;
 
 	i = 0;
 	error = 0;
@@ -26,9 +36,7 @@ int		main(int ac, char **av)
 		i++;
 	}
 	tab[i] = 0;
-	if (!(s_parse = malloc(sizeof(t_struct))))
-		return (0);
-	ft_check_parsing(s_parse, tab, error);
+	ft_check_parsing(tab, error);
 	close(fd);
 	return (0);
 }
