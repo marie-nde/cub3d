@@ -73,8 +73,8 @@ void		ft_print_error(int error, t_struct *s_parse)
 		ft_putstr("Warning: Duplications have been found in the map file\n");
 	if (s_parse->resol == 3)
 		ft_putstr("Warning: Wrong resolution\n");
-	if (s_parse->north == 3 || s_parse->south == 3 || s_parse->west == 3 || s_parse->east == 3 || s_parse->sprite)
-		ft_putstr("Warning: Wrong texture file(s)\n");
+	if (s_parse->north == 3 || s_parse->south == 3 || s_parse->west == 3 || s_parse->east == 3 || s_parse->sprite == 3)
+		ft_putstr("Warning: Wrong texture files\n");
 	if (s_parse->floor == 3 || s_parse->ceiling == 3)
 		ft_putstr("Warning: Wrong color format\n");
 	ft_print_error_map(s_parse);
