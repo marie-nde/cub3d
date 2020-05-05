@@ -6,7 +6,7 @@
 /*   By: mnaude <mnaude@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 14:45:45 by mnaude            #+#    #+#             */
-/*   Updated: 2020/05/05 15:05:56 by mnaude           ###   ########.fr       */
+/*   Updated: 2020/05/05 15:16:52 by mnaude           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ t_struct		*ft_init_struct(t_struct *s_parse);
 int				ft_double(int a);
 int				ft_is_it(char *str);
 int				ft_check_parsing(char **tab, int error);
-char			**ft_fill_values(char **tab, t_struct *s_parse, char **values, int i);
+char			**ft_fill_values(char **tab, t_struct *s_parse, char **values,
+int i);
 int				ft_check_cub(char *str);
 int				ft_atoi(char *str);
 int				ft_check_resol(char *str);
