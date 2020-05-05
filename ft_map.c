@@ -6,7 +6,7 @@
 /*   By: mnaude <mnaude@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 15:02:43 by mnaude            #+#    #+#             */
-/*   Updated: 2020/05/05 15:10:20 by mnaude           ###   ########.fr       */
+/*   Updated: 2020/05/05 16:20:05 by mnaude           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int			ft_other_char(char *str)
 	while (str && str[i])
 	{
 		if (str[i] && str[i] != '1' && str[i] != '0' && str[i] != '2' && str[i]
-			!= 'N' && str[i] != 'S' && str[i] != 'W' && str[i] != 'E')
+			!= 'N' && str[i] != 'S' && str[i] != 'W' && str[i] != 'E' && str[i]
+			!= ' ')
 			return (1);
 		i++;
 	}
@@ -44,8 +45,7 @@ t_struct	*ft_check_map(char **map, t_struct *s_parse, int i, int dup)
 		s_parse->no_map = 1;
 	else
 	{
-		while (map && map[i] && (map[i][0] == '1' || map[i][0] == '0' ||
-			map[i][0] == '2'))
+		while (map && map[i] && ft_space_before(map[i]) == 1)
 		{
 			if ((i == 0 && ft_map_wall(map[i]) == 1) || ft_wall_around(map[i])
 				== 1)

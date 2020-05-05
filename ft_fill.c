@@ -6,7 +6,7 @@
 /*   By: mnaude <mnaude@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 14:58:00 by mnaude            #+#    #+#             */
-/*   Updated: 2020/05/05 15:01:00 by mnaude           ###   ########.fr       */
+/*   Updated: 2020/05/05 16:26:48 by mnaude           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,26 @@ char	**ft_fill_values(char **tab, t_struct *s_parse, char **values, int i)
 	return (values);
 }
 
-char	**ft_fill_map(char **tab, t_struct *s_parse)
+int		ft_space_before(char *str)
+{
+	int i;
+
+	i = 0;
+	if (str[i] == ' ')
+	{
+		while (str[i] == ' ')
+		{
+			if (str[i] == '1' || str[i] == '0' || str[i] == '2')
+				return (1);
+			i++;
+		}
+	}
+	if (str[i] == '1' || str[i] == '0' || str[i] == '2')
+		return (1);
+	return (0);
+}
+
+char	**ft_fill_map(char **tab)
 {
 	int		i;
 	int		j;
@@ -53,14 +72,14 @@ char	**ft_fill_map(char **tab, t_struct *s_parse)
 		return (NULL);
 	while (tab && tab[i])
 	{
-		if (tab[i][0] == '1' || tab[i][0] == '0' || tab[i][0] == '2')
+		if (ft_space_before(tab[i]) == 1)
 		{
 			while (tab[i])
 				map[j++] = ft_strdup(tab[i++], '\0');
-			map[j] = 0;
 			break ;
 		}
 		i++;
 	}
+	map[j] = 0;
 	return (map);
 }

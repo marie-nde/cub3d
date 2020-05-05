@@ -6,7 +6,7 @@
 /*   By: mnaude <mnaude@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 15:14:36 by mnaude            #+#    #+#             */
-/*   Updated: 2020/05/05 15:14:37 by mnaude           ###   ########.fr       */
+/*   Updated: 2020/05/05 16:14:05 by mnaude           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int		ft_around(char *s1, char *s, char *s2)
 	i = 0;
 	while (s && s[i])
 		i++;
-	while (s && s[i] != '0')
+	while (s && s[i] != '0' && i > 0)
 		i--;
 	if (i >= ft_strlen(s1, '\0'))
 		return (1);

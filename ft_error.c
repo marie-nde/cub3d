@@ -6,7 +6,7 @@
 /*   By: mnaude <mnaude@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 14:53:25 by mnaude            #+#    #+#             */
-/*   Updated: 2020/05/05 14:56:13 by mnaude           ###   ########.fr       */
+/*   Updated: 2020/05/05 15:56:38 by mnaude           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,11 @@ int			ft_map_wall(char *str)
 	int i;
 
 	i = 0;
+	while (str && str[i] && str[i] == ' ')
+		i++;
 	while (str && str[i] && str[i] == '1')
 		i++;
-	if (str[i] == '\0')
+	if (str && str[i] == '\0')
 		return (0);
 	return (1);
 }
@@ -85,6 +87,8 @@ int			ft_wall_around(char *str)
 	int i;
 
 	i = 0;
+	while (str && str[i] && str[i] == ' ')
+		i++;
 	if (str && str[i] && str[i] != '1')
 		return (1);
 	while (str && str[i])

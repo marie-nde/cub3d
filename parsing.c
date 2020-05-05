@@ -6,11 +6,23 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 16:36:40 by user42            #+#    #+#             */
-/*   Updated: 2020/05/05 15:05:35 by mnaude           ###   ########.fr       */
+/*   Updated: 2020/05/05 16:18:18 by mnaude           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int			ft_error(t_struct *s_parse)
+{
+	if (s_parse->resol != 1 || s_parse->north != 1 || s_parse->south != 1 ||
+		s_parse->west != 1 || s_parse->east != 1 || s_parse->sprite != 1 ||
+		s_parse->floor != 1 || s_parse->ceiling != 1 || s_parse->no_map != 0 ||
+		s_parse->map_wg_char != 0 || s_parse->map_end != 0 || s_parse->map_wall
+		!= 0 || s_parse->map_dup != 0 || s_parse->map_no_pos != 0 ||
+		s_parse->wrong_line != 0)
+		return (1);
+	return (0);
+}
 
 t_struct	*ft_get_error(t_struct *s_parse, char **tab, int i)
 {
@@ -109,9 +121,17 @@ int			ft_check_parsing(char **tab, int error)
 	s_parse = ft_init_struct(s_parse);
 	s_parse = ft_get_error(s_parse, tab, 0);
 	values = ft_fill_values(tab, s_parse, values, 0);
-	map = ft_fill_map(tab, s_parse);
+	map = ft_fill_map(tab);
 	s_parse = ft_check_error(values, s_parse);
 	s_parse = ft_check_map(map, s_parse, 0, 0);
 	ft_print_error(error, s_parse);
+	free(map);
+	free(values);
+	if (ft_error(s_parse) == 1)
+	{
+		free(s_parse);
+		return (1);
+	}
+	free(s_parse);
 	return (0);
 }

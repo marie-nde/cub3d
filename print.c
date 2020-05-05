@@ -6,7 +6,7 @@
 /*   By: mnaude <mnaude@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 15:15:03 by mnaude            #+#    #+#             */
-/*   Updated: 2020/05/05 15:15:45 by mnaude           ###   ########.fr       */
+/*   Updated: 2020/05/05 15:20:18 by mnaude           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,11 @@ void	ft_print_error_map(t_struct *s_parse, int error)
 	if (error == 0 && s_parse->map_wall == 1)
 		ft_putstr("Warning: The map is not surrounded by walls\n");
 	if (error == 0 && s_parse->map_wg_char == 1)
-		ft_putstr("Warning: One or more wrong characters have been found in
-		the map\n");
+		ft_putstr("Warning: Wrong characters have been found in the map\n");
 	if (error == 0 && s_parse->map_end == 1)
 		ft_putstr("Warning: The map is not at the end of the file\n");
 	if (error == 0 && s_parse->map_dup == 1)
-		ft_putstr("Warning: Two or more positions have been found in the
-		map\n");
+		ft_putstr("Warning: Too much positions have been found in the map\n");
 	if (error == 0 && s_parse->map_no_pos == 1)
 		ft_putstr("Warning: No position have been found in the map\n");
 }
