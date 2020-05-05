@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 16:36:40 by user42            #+#    #+#             */
-/*   Updated: 2020/05/04 16:53:46 by mnaude           ###   ########.fr       */
+/*   Updated: 2020/05/05 15:05:35 by mnaude           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,12 +104,14 @@ int			ft_check_parsing(char **tab, int error)
 
 	if (!(s_parse = malloc(sizeof(t_struct))))
 		return (0);
+	if (!(values = (char**)malloc(sizeof(char*) * 9)))
+		return (0);
 	s_parse = ft_init_struct(s_parse);
 	s_parse = ft_get_error(s_parse, tab, 0);
-	values = ft_fill_values(tab, s_parse);
+	values = ft_fill_values(tab, s_parse, values, 0);
 	map = ft_fill_map(tab, s_parse);
 	s_parse = ft_check_error(values, s_parse);
-	s_parse = ft_check_map(map, s_parse);
+	s_parse = ft_check_map(map, s_parse, 0, 0);
 	ft_print_error(error, s_parse);
 	return (0);
 }

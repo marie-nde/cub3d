@@ -1,15 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_fill.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mnaude <mnaude@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/05/05 14:58:00 by mnaude            #+#    #+#             */
+/*   Updated: 2020/05/05 15:01:00 by mnaude           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
-char	**ft_fill_values(char **tab, t_struct *s_parse)
+char	**ft_fill_values(char **tab, t_struct *s_parse, char **values, int i)
 {
-	int i;
 	int j;
-	char **values;
 
-	i = 0;
 	j = 0;
-	if (!(values = (char**)malloc(sizeof(char*) * 9)))
-		return (NULL);
 	while (tab[i])
 	{
 		if (ft_is_it(tab[i]) == 1 && s_parse->resol == 1)
@@ -36,9 +43,9 @@ char	**ft_fill_values(char **tab, t_struct *s_parse)
 
 char	**ft_fill_map(char **tab, t_struct *s_parse)
 {
-	int i;
-	int j;
-	char **map;
+	int		i;
+	int		j;
+	char	**map;
 
 	i = 0;
 	j = 0;

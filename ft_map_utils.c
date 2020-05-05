@@ -43,3 +43,11 @@ int		ft_around(char *s1, char *s, char *s2)
 		return (1);
 	return (0);
 }
+
+int		ft_is_diff(char c)
+{
+	if (c != '\0' && c != '1' && c != '2' && c != '0'
+		&& c != ' ')
+		return (1);
+	return (0);
+}

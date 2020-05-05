@@ -1,9 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mnaude <mnaude@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/05/05 14:53:25 by mnaude            #+#    #+#             */
+/*   Updated: 2020/05/05 14:56:13 by mnaude           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "cub3d.h"
 
 int			ft_is_it(char *str)
 {
 	int i;
-	
+
 	i = 0;
 	if (str && str[i])
 	{
@@ -23,7 +35,7 @@ int			ft_is_it(char *str)
 			return (7);
 		else if (str[i] == 'C' && str[i + 1] == ' ')
 			return (8);
-		else if (str[i] != '\0' && str[i] != '1' && str[i] != '0' && str[i] != ' ')
+		else if (ft_is_diff(str[i]) == 1)
 			return (9);
 	}
 	return (0);
@@ -56,7 +68,7 @@ t_struct	*ft_init_struct(t_struct *s_parse)
 	return (s_parse);
 }
 
-int		ft_map_wall(char *str)
+int			ft_map_wall(char *str)
 {
 	int i;
 
@@ -68,7 +80,7 @@ int		ft_map_wall(char *str)
 	return (1);
 }
 
-int		ft_wall_around(char *str)
+int			ft_wall_around(char *str)
 {
 	int i;
 
