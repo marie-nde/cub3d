@@ -6,7 +6,7 @@
 /*   By: mnaude <mnaude@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 14:58:00 by mnaude            #+#    #+#             */
-/*   Updated: 2020/05/05 16:26:48 by mnaude           ###   ########.fr       */
+/*   Updated: 2020/05/05 16:46:30 by mnaude           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,7 @@ int		ft_space_before(char *str)
 	if (str[i] == ' ')
 	{
 		while (str[i] == ' ')
-		{
-			if (str[i] == '1' || str[i] == '0' || str[i] == '2')
-				return (1);
 			i++;
-		}
 	}
 	if (str[i] == '1' || str[i] == '0' || str[i] == '2')
 		return (1);

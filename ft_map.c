@@ -6,7 +6,7 @@
 /*   By: mnaude <mnaude@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 15:02:43 by mnaude            #+#    #+#             */
-/*   Updated: 2020/05/05 16:20:05 by mnaude           ###   ########.fr       */
+/*   Updated: 2020/05/05 16:48:40 by mnaude           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,8 @@ t_struct	*ft_check_map(char **map, t_struct *s_parse, int i, int dup)
 			if (map[i + 1] == 0)
 				if (ft_map_wall(map[i]) == 1)
 					s_parse->map_wall = 1;
-			if (i > 0 && map[i + 1] != 0 && ft_around(map[i - 1], map[i],
-				map[i + 1]) == 1)
+			if (i > 0 && map[i + 1] != 0 &&
+				ft_around(map[i - 1], map[i], map[i + 1]) == 1)
 				s_parse->map_wall = 1;
 			if (ft_other_char(map[i]) == 1)
 				s_parse->map_wg_char = 1;
