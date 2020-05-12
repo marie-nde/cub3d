@@ -6,7 +6,7 @@
 /*   By: mnaude <mnaude@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 14:45:45 by mnaude            #+#    #+#             */
-/*   Updated: 2020/05/12 15:11:39 by mnaude           ###   ########.fr       */
+/*   Updated: 2020/05/12 17:38:45 by mnaude           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,20 @@ typedef struct	s_parse
 
 }				t_struct;
 
+typedef struct	s_infos
+{
+	int		x;
+	int		y;
+	char	*north;
+	char	*south;
+	char	*west;
+	char	*east;
+	char	*sprite;
+	char	*floor;
+	char	*ceiling;
+	char	**map;
+}				t_struct2;
+
 void			ft_putchar(char c);
 void			ft_putstr(char *str);
 int				get_next_line(int fd, char **line);
@@ -78,5 +92,7 @@ void			ft_print_no_values(t_struct *s_parse, int error);
 void			ft_print_wrong_text(t_struct *s_parse, int error);
 int				ft_is_diff(char c);
 int				ft_space_before(char *str);
+int				ft_get_resol(char *str, char c);
+t_struct2		*ft_fill_infos(t_struct2 *s_infos, char **tab, int i);
 
 #endif

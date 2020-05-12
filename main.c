@@ -6,7 +6,7 @@
 /*   By: mnaude <mnaude@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 14:45:32 by mnaude            #+#    #+#             */
-/*   Updated: 2020/05/05 16:27:26 by mnaude           ###   ########.fr       */
+/*   Updated: 2020/05/12 17:38:36 by mnaude           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int		main(int ac, char **av)
 	int			i;
 	int			fd;
 	int			error;
+	t_struct2	*s_infos;
 
 	i = 0;
 	error = 0;
@@ -43,7 +44,13 @@ int		main(int ac, char **av)
 		free(tab);
 		return (0);
 	}
+	if (!(s_infos = malloc(sizeof(t_struct2))))
+		return (0);
+	s_infos = ft_fill_infos(s_infos, tab, 0);
 	close(fd);
 	free(tab);
+	void *init;
+	if ((init = mlx_init()) == NULL)
+		return (0);
 	return (0);
 }
