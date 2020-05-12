@@ -6,7 +6,7 @@
 /*   By: mnaude <mnaude@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 14:45:45 by mnaude            #+#    #+#             */
-/*   Updated: 2020/05/05 16:20:15 by mnaude           ###   ########.fr       */
+/*   Updated: 2020/05/12 15:11:39 by mnaude           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <stdio.h>
 # include <string.h>
 # include <errno.h>
+# include "mlx.h"
 
 typedef struct	s_parse
 {
