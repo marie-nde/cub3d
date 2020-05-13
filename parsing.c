@@ -6,7 +6,7 @@
 /*   By: user42 <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 16:36:40 by user42            #+#    #+#             */
-/*   Updated: 2020/05/05 16:33:33 by mnaude           ###   ########.fr       */
+/*   Updated: 2020/05/13 17:09:19 by mnaude           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,8 +125,8 @@ int			ft_check_parsing(char **tab, int error)
 	s_parse = ft_check_error(values, s_parse);
 	s_parse = ft_check_map(map, s_parse, 0, 0);
 	ft_print_error(error, s_parse);
-	free(map);
-	free(values);
+	map = ft_clear_tab(map);
+	values = ft_clear_tab(values);
 	if (ft_error(s_parse) == 1)
 	{
 		free(s_parse);

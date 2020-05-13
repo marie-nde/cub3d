@@ -6,7 +6,7 @@
 /*   By: mnaude <mnaude@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/05 14:45:45 by mnaude            #+#    #+#             */
-/*   Updated: 2020/05/12 18:31:19 by mnaude           ###   ########.fr       */
+/*   Updated: 2020/05/13 17:08:36 by mnaude           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,7 @@ int				ft_is_diff(char c);
 int				ft_space_before(char *str);
 int				ft_get_resol(char *str, char c);
 t_struct2		*ft_fill_infos(t_struct2 *s_infos, char **tab, int i);
+t_struct2		*ft_clear_struct2(t_struct2 *s_infos);
+char			**ft_clear_tab(char **tab);
 
 #endif
