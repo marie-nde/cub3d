@@ -1,2 +1,2 @@
 # cub3d
-A 42 project using ray casting.
+Parsing for the 42 project "cub3d".
